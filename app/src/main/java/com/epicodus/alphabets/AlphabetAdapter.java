@@ -1,6 +1,7 @@
 package com.epicodus.alphabets;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,12 @@ public class AlphabetAdapter extends BaseAdapter {
 
     private Context mContext;
     private String[] mLetters;
+    private Typeface mTypeface;
 
-    public AlphabetAdapter(Context context, String[] letters) {
+    public AlphabetAdapter(Context context, String[] letters, Typeface typeface) {
         this.mContext = context;
         this.mLetters = letters;
+        this.mTypeface = typeface;
     }
 
     @Override
@@ -50,6 +53,7 @@ public class AlphabetAdapter extends BaseAdapter {
                     .findViewById(R.id.grid_item_letter);
 
             letterTextView.setText(mLetters[position]);
+            letterTextView.setTypeface(mTypeface);
         } else {
             gridView = (View) convertView;
         }
